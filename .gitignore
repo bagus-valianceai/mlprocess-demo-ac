@@ -1,5 +1,3 @@
 .venv_ac/
-assets/
 data/
-models/
 src/__pycache__/
