@@ -1,3 +1,5 @@
 .venv_ac/
+.pytest_cache/
+aircontaminant_docs/site/
 data/
 src/__pycache__/
