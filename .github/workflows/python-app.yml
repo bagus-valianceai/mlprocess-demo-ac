@@ -30,6 +30,7 @@ jobs:
       run: |
         docker compose build
         docker compose push
+        
   docker-pull-ec2:
     needs: docker-compose-build
     runs-on: ubuntu-latest
@@ -54,5 +55,5 @@ jobs:
     - name: Deploy to EC2
       run: |
         ssh deploy_ec2 "rm -f docker-compose.yaml"
-        ssh deploy_ec2 "wget https://raw.githubusercontent.com/bagus-valianceai/mlprocess-demo-ac/refs/heads/master/docker-compose.yaml"
+        ssh deploy_ec2 "wget -O docker-compose.yaml https://raw.githubusercontent.com/bagus-valianceai/mlprocess-demo-ac/refs/heads/master/docker-compose.yaml?token=GHSAT0AAAAAACYUA6KUKP774K2CGSEOJ6VYZ3Y4P5A"
         ssh deploy_ec2 "sudo docker compose pull && sudo docker compose up -d"
